@@ -1,0 +1,35 @@
+<head>
+
+    <title><%= title ? title : "Movie Database" %></title>
+    <link href="/Pictures/Film-icon.png" rel="icon">
+    <link href="/CSS/darkmode.css" rel="stylesheet">
+    <style>
+        ul {
+            list-style-type: none;
+            margin: auto;
+            padding: auto;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: #d8dee9;
+            text-decoration: none;
+            padding: 8px;
+            text-align: center;
+            background-color: #4F5A69;
+        }
+    </style>
+</head>
+<div>
+    <ul>
+        <li><a id="home" href="/home">Home</a></li>
+        <li><a id="allmovies" href="/movielist">All Movies</a></li>
+        <li><a id="search" href="/search">Search</a></li>
+        <li><a id="myaccount" href="/myaccount">My Account</a></li>
+        <li><a href="/login">Log out</a></li>
+    </ul>
+</div>

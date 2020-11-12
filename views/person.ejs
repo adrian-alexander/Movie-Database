@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header", {title: <%=personName%>}) %>
+<br>
+<br>
+
+<body class="nordtheme">
+    <style>
+        body {
+            text-align: left;
+            margin: auto;
+            padding: 20px;
+            font-size: 30px;
+        }
+    </style>
+    <table>
+        <tr>
+            <td> Name: <%=personName%></td>
+        </tr>
+        <tr>
+            <td>Involved as an actor: </td>
+        </tr>
+        <% for (let movie of movies) { %>
+        <% if (movie.type == "actors") { %>
+        <tr>
+            <td> <a href=<%=movie.url%>><%= movie.information %></a> </td>
+        </tr>
+        <% } %>
+        <% } %>
+        <tr>
+            <td>Involved as a writer: </td>
+        </tr>
+        <% for (let movie of movies) { %>
+        <% if (movie.type == "writer") { %>
+        <tr>
+            <td> <a href=<%=movie.url%>><%= movie.information %></a> </td>
+        </tr>
+        <% } %>
+        <% } %>
+        <tr>
+            <td>Involved as a director: </td>
+        </tr>
+        <% for (let movie of movies) { %>
+        <% if (movie.type == "director") { %>
+        <tr>
+            <td> <a href=<%=movie.url%>><%= movie.information %></a> </td>
+        </tr>
+        <% } %>
+        <% } %>
+    </table>
+</body>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="./Pictures/defaultpicture.jpeg" rel="icon">
+    <link href="./CSS/darkmode.css" rel="stylesheet">
+    <title>Login page</title>
+</head>
+<style>
+    body {
+        overflow: hidden;
+        text-align: center;
+        font-size: 20;
+        margin: auto;
+        padding: 20px;
+    }
+
+    input {
+        background-color: hsla(0, 0%, 96.5%, .13);
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 5px;
+        width: 25%;
+        border: 2px solid hsla(0, 0%, 96.5%, .36);
+    }
+</style>
+
+<body class="nordtheme">
+    <p><a href="login.html"> <img src="./Pictures/Film-icon.png" width=250, height=250> </a> </p>
+    <br>
+    <br>
+    <label>Username: </label>
+    <br>
+    <input type="text" id="usernameInput">
+    <br>
+    <label>Password: </label>
+    <br>
+    <input type="text" id="passwordInput">
+    <br>
+    <button class="login-button" onclick="loginUser()">Login</button>
+    <button class="login-button" onclick="registerUser()">Register</button>
+    <a href="home.html"><button class="login-button">Temp Index Button</button></a>
+</body>
+<script src="./logic.js"></script>
+
+</html>

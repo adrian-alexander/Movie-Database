@@ -1,0 +1,16 @@
+{
+    "user1": {
+        "username": "adrianalexander",
+        "password": "adrianalexanderiscool123",
+        "registered": "false",
+        "watchlist": [],
+        "favouriteMovie": ""
+    },
+    "user2": {
+        "username": "adrianalexander",
+        "password": "adrianisnotsocool",
+        "registered": "false",
+        "watchlist": [],
+        "favouriteMovie": ""
+    }
+}

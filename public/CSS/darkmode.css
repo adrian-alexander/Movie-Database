@@ -1,0 +1,40 @@
+@font-face {
+    src: url(../Fonts/Inter/static/Inter-Regular-slnt=0.ttf);
+    font-family: "Inter";
+}
+
+.nordtheme {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #2e3440;
+    color: #d8dee9;
+    font-family: "Inter";
+    margin: 0;
+    padding: 0;
+}
+
+.login-button {
+	background-color: #56baed;
+	border: none;
+	color: #ffffff;
+	padding: 15px 80px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 13px;
+	box-shadow: 0 10px 30px 0 rgba(95,186,233,.4);
+	border-radius: 5px 5px 5px 5px;
+	margin: 5px 20px 50px;
+}
+
+.index-body {
+    height: 100vh;
+    background-color: #2e3440;
+    color: #d8dee9;
+    font-family: "Inter";
+    text-align: center;
+    margin: 0px;
+    padding: 20px;
+    font-size: 36px;
+}

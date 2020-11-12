@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header", {title: movie.Title}) %>
+<br>
+<br>
+<img src="<%= movie.Poster%>">
+
+
+<body class="nordtheme">
+    <style>
+        body {
+            text-align: left;
+            margin: auto;
+            padding: 20px;
+            font-size: 30px;
+        }
+    </style>
+    <table>
+        <tr>
+            <td> Name: <%= movie.Title%> (<%= movie.Year%>)</td>
+        </tr>
+        <tr>
+            <td> Average Rating: <%= average %>%</td>
+        </tr>
+        <tr>
+            <td> Runtime: <%= movie.Runtime %></td>
+        </tr>
+        <tr>
+            <td> Plot: <%= movie.Plot %></td>
+        </tr>
+        <tr>
+            <td>Genre(s): </td>
+        </tr>
+        <tr>
+            <% for (let genre of movie.Genre) { %>
+        <tr>
+            <td> <a href="<%= searchTermLink + genre + typeLink + "Genre"%>"><%= genre %></a> </td>
+        </tr>
+        <% } %>
+        </tr>
+        <tr>
+            <td>Director(s): </td>
+        </tr>
+        <tr>
+            <% for (let director of movie.Director) { %>
+        <tr>
+            <td> <a href="<%= /person/ + director%>"><%= director %></a> </td>
+        </tr>
+        <% } %>
+        </tr>
+        <tr>
+            <td>Writer(s): </td>
+        </tr>
+        <tr>
+            <% for (let writer of movie.Writer) { %>
+        <tr>
+            <td> <a href="<%= /person/ + writer%>"><%= writer %></a> </td>
+        </tr>
+        <% } %>
+        </tr>
+        <tr>
+            <td>Director(s): </td>
+        </tr>
+        <tr>
+            <% for (let actor of movie.Actors) { %>
+        <tr>
+            <td> <a href="<%= /person/ + actor%>"><%= actor %></a> </td>
+        </tr>
+        <% } %>
+        </tr>
+    </table>
+</body>
