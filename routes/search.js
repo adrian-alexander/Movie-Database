@@ -7,7 +7,7 @@ app.get('/search', (req, res) => {
     let type = req.query.type.toLowerCase().split(", ");
     res.json(search(searchTerm, type));
 })
-
+//sojkednkls
 function search(searchTerm, type) {
     let filteredList = [];
     for (let movie of movieData) {
