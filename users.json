@@ -1,16 +1,13 @@
-{
-    "user1": {
-        "username": "adrianalexander",
-        "password": "adrianalexanderiscool123",
-        "registered": "false",
+[
+    {
+        "id": "1606638561743",
+        "name": "Admin",
+        "email": "admin@gmail.com",
+        "password": "$2b$10$Y0D1oF5O8W4feApx.G9RT.A3iirS931IeSZCi/th49UPKfl8RYwYO",
         "watchlist": [],
-        "favouriteMovie": ""
-    },
-    "user2": {
-        "username": "adrianalexander",
-        "password": "adrianisnotsocool",
-        "registered": "false",
-        "watchlist": [],
-        "favouriteMovie": ""
+        "favouriteMovie": "",
+        "userType": "normal",
+        "following": [],
+        "followers": []
     }
-}
+]

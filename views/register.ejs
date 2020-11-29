@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../public/Pictures/Film-icon.png" rel="icon">
+    <link href="./CSS/darkmode.css" rel="stylesheet">
+    <title>Register page</title>
+</head>
+<style>
+    body {
+        overflow: hidden;
+        text-align: center;
+        font-size: 20;
+        margin: auto;
+        padding: 20px;
+    }
+
+    input {
+        background-color: hsla(0, 0%, 96.5%, .13);
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 5px;
+        width: 25%;
+        border: 2px solid hsla(0, 0%, 96.5%, .36);
+    }
+</style>
+
+<body class="nordtheme">
+    <p><a href="register"> <img src="./Pictures/Film-icon.png" width=250, height=250> </a> </p>
+    <br>
+    <br>
+    <form action="/register" method="POST">
+        <label for="name">Name: </label>
+        <br>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email: </label>
+        <br>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="password">Password: </label>
+        <br>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit" class="login-button">Register</button>
+    </form>
+    <a href="/login">Login</a>
+</body>
+</html>

@@ -1,4 +1,5 @@
 const movieData = require('../movie-data.json');
+const search = require('../search')
 const express = require('express');
 const app = express();
 
