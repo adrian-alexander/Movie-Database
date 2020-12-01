@@ -98,7 +98,7 @@ app.get('/movie/:movieID', (req, res) => {
 
 
 
-    res.render('movie.ejs', { movie: movie, average: average, searchTermLink: "/search.html?searchTerm=", typeLink: "&type=" },);
+    res.render('movie.ejs', { movie: movie, average: average, searchTermLink: "/private/find?searchTerm=", typeLink: "&type=" },);
 })
 
 module.exports = app

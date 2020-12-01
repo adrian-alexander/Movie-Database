@@ -55,16 +55,16 @@
         <tr>
 
             <% for (let movie of movieRow) { %>
-            <td> <a href=<%= "/movie/" + movie.imdbID%>> <img src="<%= movie.Poster%>"> </a> </td>
+            <td> <a href=<%= "/private/movie/" + movie.imdbID%>> <img src="<%= movie.Poster%>"> </a> </td>
             <% } %>
         </tr>
         <% } %>
     </table>
     <br>
     <% if (pageNumber > 0) { %>
-    <a href="<%= "/movielist?pageNumber=" + (pageNumber - 1) + "&pageLength=" + (pageLength)%>">&lt</a>
+    <a href="<%= "/private/movielist?pageNumber=" + (pageNumber - 1) + "&pageLength=" + (pageLength)%>">&lt</a>
     <% } %>
     <% if (pageNumber < totalPages - 1) { %>
-    <a href="<%= "/movielist?pageNumber=" + (pageNumber + 1) + "&pageLength=" + (pageLength)%>">&gt</a>
+    <a href="<%= "/private/movielist?pageNumber=" + (pageNumber + 1) + "&pageLength=" + (pageLength)%>">&gt</a>
     <% } %>
 </body>

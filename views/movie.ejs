@@ -44,7 +44,7 @@
         <tr>
             <% for (let director of movie.Director) { %>
         <tr>
-            <td> <a href="<%= /person/ + director%>"><%= director %></a> </td>
+            <td> <a href="<%= "/private/person/" + director%>"><%= director %></a> </td>
         </tr>
         <% } %>
         </tr>
@@ -54,7 +54,7 @@
         <tr>
             <% for (let writer of movie.Writer) { %>
         <tr>
-            <td> <a href="<%= /person/ + writer%>"><%= writer %></a> </td>
+            <td> <a href="<%= "/private/person/" + writer%>"><%= writer %></a> </td>
         </tr>
         <% } %>
         </tr>
@@ -64,7 +64,7 @@
         <tr>
             <% for (let actor of movie.Actors) { %>
         <tr>
-            <td> <a href="<%= /person/ + actor%>"><%= actor %></a> </td>
+            <td> <a href="<%= "/private/person/" + actor%>"><%= actor %></a> </td>
         </tr>
         <% } %>
         </tr>
