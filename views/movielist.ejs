@@ -13,11 +13,9 @@
         margin: auto;
         padding: auto;
     }
-
     li {
         float: left;
     }
-
     li a {
         display: block;
         color: #d8dee9;
@@ -26,23 +24,19 @@
         text-align: center;
         background-color: #4F5A69;
     }
-
     #allmovies {
         background-color: #48CFAD;
     }
-
     body {
         text-align: center;
         margin: auto;
         padding: 20px;
         font-size: 30px;
     }
-
     h1 {
         font-size: 30px;
         text-align: center;
     }
-
     table {
         margin-left: auto;
         margin-right: auto;
@@ -53,18 +47,17 @@
     <table>
         <% for (let movieRow of movies) { %>
         <tr>
-
             <% for (let movie of movieRow) { %>
-            <td> <a href=<%= "/movie/" + movie.imdbID%>> <img src="<%= movie.Poster%>"> </a> </td>
+            <td> <a href=<%= "/private/movie/" + movie.imdbID%>> <img src="<%= movie.Poster%>"> </a> </td>
             <% } %>
         </tr>
         <% } %>
     </table>
     <br>
     <% if (pageNumber > 0) { %>
-    <a href="<%= "/movielist?pageNumber=" + (pageNumber - 1) + "&pageLength=" + (pageLength)%>">&lt</a>
+    <a href="<%= "/private/movielist?pageNumber=" + (pageNumber - 1) + "&pageLength=" + (pageLength)%>">&lt</a>
     <% } %>
     <% if (pageNumber < totalPages - 1) { %>
-    <a href="<%= "/movielist?pageNumber=" + (pageNumber + 1) + "&pageLength=" + (pageLength)%>">&gt</a>
+    <a href="<%= "/private/movielist?pageNumber=" + (pageNumber + 1) + "&pageLength=" + (pageLength)%>">&gt</a>
     <% } %>
 </body>

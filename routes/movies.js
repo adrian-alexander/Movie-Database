@@ -18,7 +18,6 @@ app.get('/movies/:movieID', (req, res) => {
 
 
 app.post('/movies', (req, res) => {
-    console.log(req.body);
     let template = [
         'Title', 'Year',
         'Released', 'Runtime', 'Genre',
@@ -98,7 +97,7 @@ app.get('/movie/:movieID', (req, res) => {
 
 
 
-    res.render('movie.ejs', { movie: movie, average: average, searchTermLink: "/search.html?searchTerm=", typeLink: "&type=" },);
+    res.render('movie.ejs', { movie: movie, average: average, searchTermLink: "/private/find?searchTerm=", typeLink: "&type=" },);
 })
 
 module.exports = app

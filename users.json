@@ -1,13 +1,101 @@
 [
     {
-        "id": "1606638561743",
-        "name": "Admin",
-        "email": "admin@gmail.com",
-        "password": "$2b$10$Y0D1oF5O8W4feApx.G9RT.A3iirS931IeSZCi/th49UPKfl8RYwYO",
+        "id": "1606850337749",
+        "name": "testuser2020",
+        "email": "testuser@gmail.com",
+        "password": "test",
         "watchlist": [],
-        "favouriteMovie": "",
+        "favouriteMovies": [],
         "userType": "normal",
-        "following": [],
-        "followers": []
+        "usersFollowing": [],
+        "peopleFollowing": []
+    },
+    {
+        "id": "1606850362218",
+        "name": "iuawfhweafb",
+        "email": "pdgkneasdv@srkgjhbersdg",
+        "password": "srdlkgnersdgkl",
+        "watchlist": [],
+        "favouriteMovies": [],
+        "userType": "normal",
+        "usersFollowing": [],
+        "peopleFollowing": []
+    },
+    {
+        "id": "1606851087091",
+        "name": "Clark",
+        "email": "clarkbains@gmail.com",
+        "password": "clark",
+        "watchlist": [],
+        "favouriteMovies": [],
+        "userType": "normal",
+        "usersFollowing": [],
+        "peopleFollowing": []
+    },
+    {
+        "id": "1606851215718",
+        "name": "darkbains",
+        "email": "darkbains@gmail.com",
+        "password": "darkbains",
+        "watchlist": [],
+        "favouriteMovies": [],
+        "userType": "normal",
+        "usersFollowing": [],
+        "peopleFollowing": []
+    },
+    {
+        "id": "1606851247313",
+        "name": "drhershshs",
+        "email": "sedgesdgse@seodifgnneastg",
+        "password": "srheshsh",
+        "watchlist": [],
+        "favouriteMovies": [],
+        "userType": "normal",
+        "usersFollowing": [],
+        "peopleFollowing": []
+    },
+    {
+        "id": "1606851487331",
+        "name": "ogsng",
+        "email": "admin@gmail.com",
+        "password": "admin",
+        "watchlist": [],
+        "favouriteMovies": [],
+        "userType": "normal",
+        "usersFollowing": [],
+        "peopleFollowing": []
+    },
+    {
+        "id": "1606851518719",
+        "name": "edgagagwg",
+        "email": "admin@gmail.com",
+        "password": "admin",
+        "watchlist": [],
+        "favouriteMovies": [],
+        "userType": "normal",
+        "usersFollowing": [],
+        "peopleFollowing": []
+    },
+    {
+        "id": "1606851747620",
+        "name": "dthjtdhsrxh",
+        "email": "admin1@gmail.com",
+        "password": "admin",
+        "watchlist": [],
+        "favouriteMovies": [],
+        "userType": "normal",
+        "usersFollowing": [],
+        "peopleFollowing": []
+    },
+    {
+        "id": "1606861510766",
+        "name": "Adrian Alexander",
+        "email": "adrianalexander17@gmail.com",
+        "password": "arar0625",
+        "watchlist": [],
+        "favouriteMovies": [],
+        "userType": "normal",
+        "usersFollowing": [],
+        "peopleFollowing": []
     }
 ]

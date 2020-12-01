@@ -95,6 +95,6 @@ function search(searchTerm, type) {
          }
          
     }
-    xhttp.open("GET", "/search?searchTerm=" + searchTerm + "&type=" + type, true);
+    xhttp.open("GET", "/private/search?searchTerm=" + searchTerm + "&type=" + type, true);
     xhttp.send();
 }
