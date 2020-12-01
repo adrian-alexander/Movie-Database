@@ -5,10 +5,18 @@ let userSchema = mongoose.Schema({
     name: String,
     email: {type: String, unique: true},
     password: String,
-    favouriteMovie: {type: mongoose.Schema.Types.ObjectId, ref: "Movie"}
+    favouriteMovies: [{type: mongoose.Schema.Types.ObjectId, ref: "Movie"}],
+    watchList: [{type: mongoose.Schema.Types.ObjectId, ref: "Movie"}],
+    usersFollowing: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}], //Not sure if this actually works
+    recommendedMovies: [{type: mongoose.Schema.Types.ObjectId, ref: "Movie"}],
+    peopleFollowing: []
   });
 
 let userModel = mongoose.model('User', userSchema);
+
+let peopleSchema = mongoose.Schema({
+  Name: String
+})
 
 let movieSchema = mongoose.Schema({
   Title: String,

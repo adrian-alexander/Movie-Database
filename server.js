@@ -16,7 +16,7 @@ const session = require('express-session');
 
 const app = express();
 const appAuth = express();
-app.use(session({ secret: "obgokesrngionrhesznoh" }));
+app.use(session({ secret: "obgokesrngionrhesznoh", resave: false, saveUninitialized: true }));
 
 app.use('/private', appAuth);
 appAuth.use((req, res, next) => {
