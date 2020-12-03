@@ -97,5 +97,16 @@
         "userType": "normal",
         "usersFollowing": [],
         "peopleFollowing": []
+    },
+    {
+        "id": "1606943341073",
+        "name": "Paul",
+        "email": "paul@gmail.com",
+        "password": "paul",
+        "watchlist": [],
+        "favouriteMovies": [],
+        "userType": "normal",
+        "usersFollowing": [],
+        "peopleFollowing": []
     }
 ]

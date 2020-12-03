@@ -56,10 +56,7 @@ app.post('/register', async (req, res) => {
       peopleFollowing: []
     })
     const stringifyUsers = JSON.stringify(users);
-    fs.writeFile('users.json', stringifyUsers, finished);
-    function finished(err) {
-      console.log("Successfully copied user to file.");
-    }
+    fs.writeFileSync('users.json', stringifyUsers);
     res.redirect('/login')
   }
   else {

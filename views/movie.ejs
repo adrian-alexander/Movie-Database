@@ -16,7 +16,14 @@
         }
     </style>
     <br>
-    <button type="button" class="login-button" onclick="">Add movie to Favourites</button>
+    <div>
+        <ul>
+            <li><a onclick="buttonClick()">Add <%= movie.Title %> to your favourites</a></li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    
     <table>
         <tr>
             <td> Name: <%= movie.Title%> (<%= movie.Year%>)</td>

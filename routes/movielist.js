@@ -1,8 +1,11 @@
-const movieData = require('../movie-data.json');
 const express = require('express');
 const app = express();
+const fs = require('fs');
+const path = require('path');
+
 
 app.get('/movielist', (req, res) => {
+    let movieData = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'movie-data.json')));
     let pageNumber = Number(req.query.pageNumber);
     if ((pageNumber == undefined) || isNaN(pageNumber)) {
         pageNumber = 0;

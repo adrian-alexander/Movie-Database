@@ -1,15 +1,17 @@
-const movieData = require('../movie-data.json');
 const search = require('../search')
 const express = require('express');
 const app = express();
+const fs = require('fs');
+const path = require('path');
+let movieDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'movie-data.json')));
 
 //GET /movies/:movieID
 app.get('/movies/:movieID', (req, res) => {
     let movieID = req.params.movieID;
     let movie = {};
-    for (let i = 0; i < movieData.length; i++) {
-        if (movieData[i].imdbID == movieID) {
-            movie = Object.assign({}, movieData[i]);
+    for (let i = 0; i < movieDataJSON.length; i++) {
+        if (movieDataJSON[i].imdbID == movieID) {
+            movie = Object.assign({}, movieDataJSON[i]);
             break;
         }
     }
@@ -36,7 +38,9 @@ app.post('/movies', (req, res) => {
             return;
         }
     }
-    movieData.push(req.body);
+    movieDataJSON.push(req.body);
+    const movieDataStringify = JSON.stringify(movieDataJSON);
+    fs.writeFileSync(path.join(__dirname, '..', 'movie-data.json'), movieDataStringify);
     res.status(200);
     res.send("OK");
 })
@@ -55,9 +59,9 @@ function parseString(str) {
 app.get('/movie/:movieID', (req, res) => {
     let movieID = req.params.movieID;
     let movie = {};
-    for (let i = 0; i < movieData.length; i++) {
-        if (movieData[i].imdbID == movieID) {
-            movie = Object.assign({}, movieData[i]);
+    for (let i = 0; i < movieDataJSON.length; i++) {
+        if (movieDataJSON[i].imdbID == movieID) {
+            movie = Object.assign({}, movieDataJSON[i]);
             break;
         }
     }

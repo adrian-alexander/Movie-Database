@@ -19,6 +19,7 @@ const app = express();
 const appAuth = express();
 app.use(session({ secret: "obgokesrngionrhesznoh", resave: false, saveUninitialized: true }));
 
+app.use(bodyParser.json());
 app.use('/private', appAuth);
 appAuth.use((req, res, next) => {
   if (req.session.loggedIn == true) {
@@ -30,7 +31,6 @@ appAuth.use((req, res, next) => {
 })
 
 app.use(express.static('public'));
-app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
 appAuth.use(SearchRoute);
