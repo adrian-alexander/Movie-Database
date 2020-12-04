@@ -1,6 +1,4 @@
-//DONE DEC 1 4:40PM
-
-const search = require('../search')
+const search = require('../search');
 const express = require('express');
 const app = express();
 

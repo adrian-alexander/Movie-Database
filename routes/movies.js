@@ -70,28 +70,25 @@ app.get('/movie/:movieID', (req, res) => {
     let sum = 0;
     let count = 0;
     for (rating in movie.Ratings) {
-        //if it's a percentage
+
         if (movie.Ratings[rating].Value.includes("%")) {
             sum += parseFloat(movie.Ratings[rating].Value);
             count += 1;
             continue;
         }
 
-        //if it's /10
-        if (movie.Ratings[rating].Value.includes("/10")) {
-            sum += eval(movie.Ratings[rating].Value) * 100;
+        if (movie.Metascore && movie.Metascore != "N/A") {
+            sum += parseFloat(movie.Metascore);
             count += 1;
             continue;
+            ;
         }
 
-        //if it's /100
-        if (movie.Ratings[rating].Value.includes("/100")) {
-            sum += eval(movie.Ratings[rating].Value) * 100;
+        if (movie.imdbRating && movie.imdbRating != "N/A") {
+            sum += parseFloat((movie.imdbRating * 10));
             count += 1;
             continue;
         }
-        sum += eval(movie.Ratings[rating].Value);
-        count += 1;
     }
     let average = Math.round(sum / count);
     movie.Director = parseString(movie.Director);
