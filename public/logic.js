@@ -60,10 +60,7 @@ async function followUser() {
     let user = await request({ path: path, method: "GET" });
     let currentUser = await request({ path: "/private/users/me", method: "GET" });
 
-    console.log(document.getElementById('followUser').innerHTML)
-    console.log(document.getElementById('followUser').innerHTML == "Follow");
     if (document.getElementById('followUser').innerHTML == "Follow") {
-        console.log("this reaches");
         currentUser.usersFollowing.push(user.userID);
     }
     else if (document.getElementById('followUser').innerHTML == "Remove") {

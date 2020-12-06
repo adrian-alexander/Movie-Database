@@ -21,26 +21,30 @@ function parseString(str) {
     }
     return noBrackets;
 }
-let id = 0;
-//Adds the people to the array
-for (let movie of movieData) {
-    for (let field of array) {
-        for (let person of parseString(movie[field])) {
-            if (!personData.has(person)){
-                personData.set(person,{name:person,movies:[], personID:id})
 
-                id++
+function addPerson() {
+    let id = 0;
+    //Adds the people to the array
+    for (let movie of movieData) {
+        for (let field of array) {
+            for (let person of parseString(movie[field])) {
+                if (!personData.has(person)) {
+                    personData.set(person, { name: person, movies: [], personID: id })
+                    id++
+                }
+                personData.get(person).movies.push({
+                    information: movie.Title,
+                    url: "/private/movie/" + movie.imdbID,
+                    type: field.toLowerCase()
+                });
             }
-            personData.get(person).movies.push({
-                information: movie.Title,
-                url:"/private/movie/" + movie.imdbID,
-                type:field.toLowerCase()
-            });
         }
     }
-} 
-let bigBoy = []
-for (let person of personData.values()){
-    bigBoy.push(person)
+    let personArray = []
+    for (let person of personData.values()) {
+        personArray.push(person)
+    }
+    fs.writeFileSync('people.json', JSON.stringify(personArray));
 }
-fs.writeFileSync('people1.json', JSON.stringify(bigBoy));
+
+module.exports = addPerson;
