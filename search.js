@@ -12,7 +12,7 @@ function search(searchTerm, type) {
             if ((!type) || (type.includes("all")) || (type.includes("movie")))
                 filteredList.push({ information: movie.Title, url: "/private/movie/" + movie.imdbID, type: "movie" });
             continue;
-        }
+        } 
         //Search movie genre
         if (movie.Genre.toLowerCase().includes(searchTerm)) {
             if ((!type) || (type.includes("all")) || (type.includes("genre")))
