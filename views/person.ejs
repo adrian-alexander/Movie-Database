@@ -13,9 +13,13 @@
             font-size: 30px;
         }
     </style>
+    <button id="followUser" class="login-button"><%= followingButtonText %></button>
     <table>
         <tr>
-            <td> Name: <%=personName%></td>
+            <td>Name: </td>
+        </tr>
+        <tr>
+            <td id="nameDataCell"><%=personName%></td>
         </tr>
         <tr>
             <td>Involved as an actor: </td>
@@ -49,3 +53,4 @@
         <% } %>
     </table>
 </body>
+<script src="/logic.js"></script>

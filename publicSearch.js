@@ -36,7 +36,6 @@ function publicSearch(searchTerm, type) {
         }
         //Search minrating
         else if (searchTerm == "minrating") {
-            console.log("whyisntthisworking");
             let sum = 0;
             let count = 0;
             for (rating in movie.Ratings) {

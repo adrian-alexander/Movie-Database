@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("partials/header", {title: "User Page"}) %>
+    <%- include("partials/header", {title: user.name}) %>
 
 <body class="nordtheme">
     <style>
@@ -18,16 +18,16 @@
     </style>
     <br>
     <br>
-    <img src="./Pictures/defaultpicture.jpeg" height=300px/>
+    <img src="/Pictures/defaultpicture.jpeg" height=300px/>
     <table>
         <tr>
-            <td> Name: </td>
+            <td> Name: <%= user.name %></td>
         </tr>
         <tr>
-            <td> Favorite Movie: </td>
+            <td> Favourite Movies: <%= user.favouriteMovies %></td>
         </tr>
         <tr>
-            <td> Watchlist: </td>
+            <td> Watchlist: <%= user.watchlist %></td>
         </tr>
     </table>
 </body>

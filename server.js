@@ -28,6 +28,7 @@ const Person = require('./routes/person');
 const Home = require('./routes/home');
 const MyAccount = require('./routes/myaccount');
 const LoginRegister = require('./routes/login-register');
+const User = require('./routes/user');
 
 const movieAPI = require('./public/apis/movieAPI');
 const peopleAPI = require('./public/apis/peopleAPI');
@@ -39,9 +40,11 @@ appAuth.use(Movies);
 appAuth.use(Person);
 appAuth.use(MyAccount);
 appAuth.use(Home);
+appAuth.use(User);
+
 app.use(LoginRegister);
 app.use(movieAPI);
 app.use(peopleAPI);
 app.use(usersAPI);
 
-app.listen(port, () => console.log('Server is up'));
+app.listen(port, () => console.log('Server is up @ http://localhost:3000'));

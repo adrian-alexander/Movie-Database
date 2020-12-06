@@ -16,17 +16,17 @@
         }
     </style>
     <br>
-    <div>
-        <ul>
-            <li><a onclick="buttonClick()">Add <%= movie.Title %> to your favourites</a></li>
-        </ul>
-    </div>
+    <button id="addToWatchlistButton" class="login-button"><%= watchlistButtonText %></button>
     <br>
+    <button id="addToFavouritesButton" class="login-button"><%= favouritesButtonText %></button>
     <br>
     
     <table>
         <tr>
             <td> Name: <%= movie.Title%> (<%= movie.Year%>)</td>
+        </tr>
+        <tr>
+            <td id="idDataCell" style="display: none"><%= movie.imdbID%></td>
         </tr>
         <tr>
             <td> Average Rating: <%= average %>%</td>
@@ -79,4 +79,4 @@
         </tr>
     </table>
 </body>
-<script type="text/javascript" src="../public/logic.js"></script>
+<script src="/logic.js"></script>

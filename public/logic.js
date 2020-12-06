@@ -23,3 +23,89 @@ function search(searchTerm, type) {
     xhttp.open("GET", "/private/search?searchTerm=" + searchTerm + "&type=" + type, true);
     xhttp.send();
 }
+
+async function accountType() {
+
+    let currentUser = await request({ path: "/private/users/me", method: "GET" });
+    if (currentUser.userType == "normal") {
+        currentUser.userType = "contributor";
+    }
+    else {
+        currentUser.userType = "normal";
+    }
+
+    await request({ path: "/private/users/me", method: "POST", body: currentUser });
+    location.reload();
+}
+
+async function followUser() {
+    let path = "/api/people?name=" + document.getElementById('nameDataCell').innerHTML;
+    let person = await request({ path: path, method: "GET" })
+    let currentUser = await request({ path: "/private/users/me", method: "GET" });
+
+    if (document.getElementById('followUser').innerHTML == "Follow") {
+        currentUser.peopleFollowing.push(person.personID);
+    }
+    else if (document.getElementById('followUser').innerHTML == "Remove") {
+        currentUser.peopleFollowing = currentUser.peopleFollowing.filter((filter => {return filter !== person.personID}));
+    }
+
+    await request({ path: "/private/users/me", method: "POST", body: currentUser });
+    location.reload();
+
+}
+
+async function watchlist() {
+    let currentUser = await request({ path: "/private/users/me", method: "GET" });
+
+
+    if (document.getElementById('addToWatchlistButton').innerHTML == "Add to watchlist") {
+        currentUser.watchlist.push(document.getElementById('idDataCell').innerHTML);
+    }
+    else if (document.getElementById('addToWatchlistButton').innerHTML == "Remove from watchlist") {
+        currentUser.watchlist = currentUser.watchlist.filter((filter => {return filter !== document.getElementById('idDataCell').innerHTML}));
+    }
+
+    await request({ path: "/private/users/me", method: "POST", body: currentUser });
+    location.reload();
+}
+
+async function favourites() {
+    let currentUser = await request({ path: "/private/users/me", method: "GET" });
+    if (document.getElementById('addToFavouritesButton').innerHTML == "Add to favourite movies") {
+        currentUser.favouriteMovies.push(document.getElementById('idDataCell').innerHTML);
+    }
+    else if (document.getElementById('addToFavouritesButton').innerHTML == "Remove from favourite movies") {
+        currentUser.favouriteMovies = currentUser.favouriteMovies.filter((filter => {return filter !== document.getElementById('idDataCell').innerHTML}));
+    }
+
+    await request({ path: "/private/users/me", method: "POST", body: currentUser });
+    location.reload();
+}
+
+
+async function request(object) {
+    let requestOptions = { method: object.method, headers: { "Content-Type": "application/json" } };
+    if (object.body) {
+        requestOptions.body = JSON.stringify(object.body);
+    }
+    let request = await fetch(object.path, requestOptions);
+    try {
+        return await request.json();
+    } catch {
+        return null;
+    }
+}
+
+if (document.getElementById('changeAccountType')) {
+    document.getElementById('changeAccountType').addEventListener('click', accountType);
+}
+if (document.getElementById('followUser')) {
+    document.getElementById('followUser').addEventListener('click', followUser);
+}
+if (document.getElementById('addToWatchlistButton')) {
+    (document.getElementById('addToWatchlistButton').addEventListener('click', watchlist));
+}
+if (document.getElementById('addToFavouritesButton')) {
+    (document.getElementById('addToFavouritesButton').addEventListener('click', favourites));
+}

@@ -11,14 +11,14 @@ app.get('/api/people', (req, res) => {
         for (searchTerm of peopleDataJSON) {
             if (searchTerm.name.toLowerCase().includes(req.query.name.toLowerCase())) {
                 res.send(searchTerm);
-                break;
+                return;
             }
         }
     }
-    if (req.query.name == "") {
+    else if (req.query.name == "") {
         res.send(peopleDataJSON);
     }
-    else {
+    else{
         res.send("No people with that name");
         res.status(404);
     }
@@ -27,7 +27,7 @@ app.get('/api/people', (req, res) => {
 
 app.get('/api/people/:person', (req, res) => {
     let personID = req.body.personID;
-    console.log(personID);
+
     let person = {};
     for (let i = 0; i < peopleDataJSON.length; i++) {
         if (peopleDataJSON[i].personID == personID) {

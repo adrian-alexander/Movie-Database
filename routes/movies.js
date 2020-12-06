@@ -59,10 +59,45 @@ function parseString(str) {
 app.get('/movie/:movieID', (req, res) => {
     let movieID = req.params.movieID;
     let movie = {};
+    let userData = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'users.json')));
+    let currentUser;
+    let watchlistButtonText = "Add to watchlist";
+    let favouritesButtonText = "Add to favourite movies";
+
     for (let i = 0; i < movieDataJSON.length; i++) {
         if (movieDataJSON[i].imdbID == movieID) {
             movie = Object.assign({}, movieDataJSON[i]);
             break;
+        }
+    }
+
+    //find current user
+    for (let user of userData) {
+        if (req.session.user.userID == user.userID) {
+            currentUser = user;
+            break;
+        }
+    }
+
+
+    for (let movie1 of currentUser.watchlist) {
+        if (movie1 == movie.imdbID) {
+
+            watchlistButtonText = "Remove from watchlist";
+            break;
+        }
+        else {
+            watchlistButtonText = "Add to watchlist"
+        }
+    }
+
+    for (let movie2 of currentUser.favouriteMovies) {
+        if (movie2 == movie.imdbID) {
+            favouritesButtonText = "Remove from favourite movies";
+            break;
+        }
+        else {
+            favouritesButtonText = "Add to favourite movies"
         }
     }
 
@@ -98,7 +133,7 @@ app.get('/movie/:movieID', (req, res) => {
 
 
 
-    res.render('movie.ejs', { movie: movie, average: average, searchTermLink: "/private/find?searchTerm=", typeLink: "&type=" },);
+    res.render('movie.ejs', { favouritesButtonText: favouritesButtonText, watchlistButtonText: watchlistButtonText, movie: movie, average: average, searchTermLink: "/private/find?searchTerm=", typeLink: "&type=" },);
 })
 
 module.exports = app

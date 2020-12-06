@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 function search(searchTerm, type) {
+    searchTerm = searchTerm.toLowerCase();
     let movieData = JSON.parse(fs.readFileSync(path.join(__dirname, 'movie-data.json')));
     let personData = JSON.parse(fs.readFileSync(path.join(__dirname, 'people.json')));
     let filteredList = [];
