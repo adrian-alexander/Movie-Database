@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const addPersonScript = require('./addPersonScript');
 
-addPersonScript();
+//addPersonScript();
 
 const app = express();
 const appAuth = express();

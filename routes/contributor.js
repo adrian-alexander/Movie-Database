@@ -35,7 +35,7 @@ app.get('/contributor/addmovie', (req, res) => {
         return;
     }
     res.render('addmovie.ejs')
-    
+
 })
 
 app.get('/contributor/addperson', (req, res) => {
@@ -52,7 +52,7 @@ app.get('/contributor/addperson', (req, res) => {
         return;
     }
     res.render('addperson.ejs')
-    
+
 })
 
 
@@ -66,20 +66,34 @@ app.post('/contributor/addmovie', async (req, res) => {
             break;
         }
     }
-    console.log(count);
     if (count == 0) {
         //Now check if the people exist in the database
-        console.log(req.body.director.includes(peopleData[21853].name));
-    
-        let count1 = 0;
+        let directorCount = 0;
+        let writerCount = 0;
+        let actorCount = 0;
+        let directors = req.body.director.split(/\s*,\s*/);
+        let writers = req.body.writer.split(/\s*,\s*/)
+        let actors = req.body.actors.split(/\s*,\s*/)
         for (let person of peopleData) {
-            if (req.body.director.includes(person.name) && req.body.writer.includes(person.name) || req.body.actors.includes(person.name)) {
-                count1++
+            for (let director of directors) {
+                if (director.includes(person.name)) {
+                    directorCount++;
+                }
+            }
+            for (let writer of writers) {
+                if (writer.includes(person.name)) {
+                    writerCount++;
+                }
+            }
+            for (let actor of actors) {
+                if (actor.includes(person.name)) {
+                    actorCount++;
+                }
             }
         }
-        if (count1 > 0) {
+        if ((directorCount == directors.length) && (writerCount == writers.length) && (actorCount == actors.length)) {
             movieData.push({
-                'Title': req.body.title, 
+                'Title': req.body.title,
                 'Year': req.body.year,
                 'Runtime': req.body.runtime,
                 'Genre': req.body.genre,
@@ -92,22 +106,19 @@ app.post('/contributor/addmovie', async (req, res) => {
             })
             const stringifyMovieData = JSON.stringify(movieData);
             fs.writeFileSync('movie-data.json', stringifyMovieData);
-            addPersonScript();
             res.redirect('/private/contributor/');
-            console.log("Successfully added a movie to the database!"); 
+            console.log("Successfully added a movie to the database!");
             return;
         }
         else {
             res.redirect('/private/contributor/');
             console.log("A person doesn't exist in the database.");
         }
-    
     }
     else {
         res.redirect('/private/contributor/');
         console.log("Movie already exists in the database.");
     }
-
 })
 
 app.post('/contributor/addperson', async (req, res) => {
@@ -116,7 +127,7 @@ app.post('/contributor/addperson', async (req, res) => {
     let count = 0;
     //This goes through the people.json and searches for the person's name. If there are any matches, it adds 1 to the count.
     for (let person of peopleData) {
-        if (req.body.name.toLowerCase() ==  person.name.toLowerCase()) {
+        if (req.body.name.toLowerCase() == person.name.toLowerCase()) {
             count++
             break;
         }
@@ -127,6 +138,8 @@ app.post('/contributor/addperson', async (req, res) => {
         })
         const stringifyPeopleData = JSON.stringify(peopleData);
         fs.writeFileSync('people.json', stringifyPeopleData);
+        //addPersonScript();
+        console.log("Success!")
         res.redirect('/private/contributor/');
     }
     else {
