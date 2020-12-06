@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
-const addPersonScript = require('../addPersonScript');
+const addPersonScript = require('../important/addPersonScript');
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/contributor', (req, res) => {
@@ -57,8 +57,8 @@ app.get('/contributor/addperson', (req, res) => {
 
 
 app.post('/contributor/addmovie', async (req, res) => {
-    let movieData = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'movie-data.json')));
-    let peopleData = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'people.json')))
+    let movieData = JSON.parse(fs.readFileSync(path.join(__dirname, '../important', 'movie-data.json')));
+    let peopleData = JSON.parse(fs.readFileSync(path.join(__dirname, '../important', 'people.json')))
     let count = 0;
     for (let movie of movieData) {
         if (req.body.imdbID == movie.imdbID) {

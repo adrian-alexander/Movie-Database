@@ -3,10 +3,9 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
-const data = fs.readFileSync('users.json');
-const userFile = JSON.parse(data);
-
-const users = userFile;
+const path = require('path');
+let userDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '../important', 'users.json')));
+const users = userDataJSON;
 
 app.use(express.urlencoded({ extended: false }))
 

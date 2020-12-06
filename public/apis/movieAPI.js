@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const publicSearch = require('../../publicSearch');
+const publicSearch = require('../../important/publicSearch');
 const fs = require('fs');
 const path = require('path');
-let movieDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '../..', 'movie-data.json')));
+let movieDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '../../important', 'movie-data.json')));
 
 app.get('/api/movies', (req, res) => {
     let searchTerm = req.query.searchTerm.toLowerCase();
@@ -45,7 +45,7 @@ app.post('/api/movies', (req, res) => {
     }
     movieDataJSON.push(req.body);
     const movieDataStringify = JSON.stringify(movieDataJSON);
-    fs.writeFileSync(path.join(__dirname, '../..', 'movie-data.json'), movieDataStringify);
+    fs.writeFileSync(path.join(__dirname, '../../important', 'movie-data.json'), movieDataStringify);
     res.status(200);
     res.send("OK");
 })

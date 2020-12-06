@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const publicSearch = require('../../publicSearch');
+const publicSearch = require('../../important/publicSearch');
 const fs = require('fs');
 const path = require('path');
 let peopleDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '../..', 'people.json')));
