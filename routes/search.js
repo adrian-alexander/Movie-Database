@@ -1,4 +1,4 @@
-const search = require('../search');
+const search = require('../important/search');
 const express = require('express');
 const app = express();
 

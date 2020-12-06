@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
-const addPersonScript = require('../addPersonScript');
+const addPersonScript = require('../important/addPersonScript');
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/contributor', (req, res) => {

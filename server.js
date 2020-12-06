@@ -3,9 +3,9 @@ const port = 3000;
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const addPersonScript = require('./addPersonScript');
+const addPersonScript = require('./important/addPersonScript');
 
-//addPersonScript();
+addPersonScript();
 
 const app = express();
 const appAuth = express();

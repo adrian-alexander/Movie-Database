@@ -1,9 +1,9 @@
-const search = require('../search')
+const search = require('../important/search')
 const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
-let movieDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'movie-data.json')));
+let movieDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '../important', 'movie-data.json')));
 
 //GET /movies/:movieID
 app.get('/movies/:movieID', (req, res) => {

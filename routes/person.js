@@ -1,7 +1,7 @@
 //DONE DEC 1 4:40PM
 
 const express = require('express');
-const search = require('../search')
+const search = require('../important/search')
 const fs = require('fs');
 const path = require('path');
 const { formatWithOptions } = require('util');

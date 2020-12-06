@@ -3,7 +3,7 @@ const app = express();
 //const publicSearch = require('../../publicSearch');
 const fs = require('fs');
 const path = require('path');
-let userDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '../..', 'users.json')));
+let userDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '../../important/', 'users.json')));
 
 app.get('/api/users', (req, res) => {
     if (req.query.name) {

@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const publicSearch = require('../../publicSearch');
+const publicSearch = require('../../important/publicSearch');
 const fs = require('fs');
 const path = require('path');
-let movieDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '../..', 'movie-data.json')));
+let movieDataJSON = JSON.parse(fs.readFileSync(path.join(__dirname, '../../important', 'movie-data.json')));
 
 app.get('/api/movies', (req, res) => {
     let searchTerm = req.query.searchTerm.toLowerCase();
