@@ -13,13 +13,13 @@
             font-size: 30px;
         }
     </style>
-    <button id="followUser" class="login-button"><%= followingButtonText %></button>
+    <button id="followPerson" class="login-button"> <%= followingButtonText %></button>
     <table>
         <tr>
-            <td>Name: </td>
+            <td>Name: <%=personName%></td>
         </tr>
         <tr>
-            <td id="nameDataCell"><%=personName%></td>
+            <td id="idDataCell" style="display: none"><%=personName%></td>
         </tr>
         <tr>
             <td>Involved as an actor: </td>

@@ -27,21 +27,50 @@
     <br>
     <br>
     <button id="changeAccountType" class="login-button"><%= buttonText %></button>
+    <button  class="login-button" onclick="window.location.href='/private/contributor'">Contributor options </a></button>
     <table>
         <tr>
             <td> Name: <%= user.name %> </td>
         </tr>
         <tr>
-            <td> Favourite Movie: <%= user.favouriteMovies %> </td>
+            <td> Favourite Movies: </td>
         </tr>
         <tr>
-            <td> Watchlist: <%= user.favouriteMovies %> </td>
+            <% for (let movie of user.favouriteMovies) { %>
+        <tr>
+            <td> <a href="<%= "/private/movie/" + movie%>"><%= movieNames[movie].Title %></a> </td>
+        </tr>
+            <% } %>
         </tr>
         <tr>
-            <td> Users following: <%= user.peopleFollowing %> </td>
+            <td> Watchlist: </td>
         </tr>
         <tr>
-            <td> People following: <%= user.peopleFollowing %> </td>
+            <% for (let movie of user.watchlist) { %>
+        <tr>
+            <td> <a href="<%= "/private/movie/" + movie%>"><%= movieNames[movie].Title %></a> </td>
+        </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <td> People Following: </td>
+        </tr>
+        <tr>
+            <% for (let person of user.peopleFollowing) { %>
+        <tr>
+            <td> <a href="<%= "/private/person/" + peopleNames[person].name%>"><%= peopleNames[person].name %></a> </td>
+        </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <td> Users Following: </td>
+        </tr>
+        <tr>
+            <% for (let user1 of user.usersFollowing) { %>
+        <tr>
+            <td> <a href="<%= "/private/users/" + userNames[user1].userID%>"><%= userNames[user1].name %></a> </td>
+        </tr>
+            <% } %>
         </tr>
     </table>
 </body>

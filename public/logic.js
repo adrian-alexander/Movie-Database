@@ -38,16 +38,36 @@ async function accountType() {
     location.reload();
 }
 
-async function followUser() {
-    let path = "/api/people?name=" + document.getElementById('nameDataCell').innerHTML;
-    let person = await request({ path: path, method: "GET" })
+async function followPerson() {
+    let path = "/api/people?name=" + document.getElementById('idDataCell').innerHTML;
+    let person = await request({ path: path, method: "GET" });
     let currentUser = await request({ path: "/private/users/me", method: "GET" });
 
-    if (document.getElementById('followUser').innerHTML == "Follow") {
+    if (document.getElementById('followPerson').innerHTML == "Follow") {
         currentUser.peopleFollowing.push(person.personID);
     }
-    else if (document.getElementById('followUser').innerHTML == "Remove") {
+    else if (document.getElementById('followPerson').innerHTML == "Remove") {
         currentUser.peopleFollowing = currentUser.peopleFollowing.filter((filter => {return filter !== person.personID}));
+    }
+
+    await request({ path: "/private/users/me", method: "POST", body: currentUser });
+    location.reload();
+
+}
+
+async function followUser() {
+    let path = "/api/users/" + document.getElementById('idDataCell').innerHTML;
+    let user = await request({ path: path, method: "GET" });
+    let currentUser = await request({ path: "/private/users/me", method: "GET" });
+
+    console.log(document.getElementById('followUser').innerHTML)
+    console.log(document.getElementById('followUser').innerHTML == "Follow");
+    if (document.getElementById('followUser').innerHTML == "Follow") {
+        console.log("this reaches");
+        currentUser.usersFollowing.push(user.userID);
+    }
+    else if (document.getElementById('followUser').innerHTML == "Remove") {
+        currentUser.usersFollowing = currentUser.usersFollowing.filter((filter => {return filter !== user.userID}));
     }
 
     await request({ path: "/private/users/me", method: "POST", body: currentUser });
@@ -83,7 +103,6 @@ async function favourites() {
     location.reload();
 }
 
-
 async function request(object) {
     let requestOptions = { method: object.method, headers: { "Content-Type": "application/json" } };
     if (object.body) {
@@ -100,12 +119,15 @@ async function request(object) {
 if (document.getElementById('changeAccountType')) {
     document.getElementById('changeAccountType').addEventListener('click', accountType);
 }
-if (document.getElementById('followUser')) {
-    document.getElementById('followUser').addEventListener('click', followUser);
+if (document.getElementById('followPerson')) {
+    document.getElementById('followPerson').addEventListener('click', followPerson);
 }
 if (document.getElementById('addToWatchlistButton')) {
     (document.getElementById('addToWatchlistButton').addEventListener('click', watchlist));
 }
 if (document.getElementById('addToFavouritesButton')) {
     (document.getElementById('addToFavouritesButton').addEventListener('click', favourites));
+}
+if (document.getElementById('followUser')) {
+    (document.getElementById('followUser').addEventListener('click', followUser));
 }

@@ -29,6 +29,7 @@ const Home = require('./routes/home');
 const MyAccount = require('./routes/myaccount');
 const LoginRegister = require('./routes/login-register');
 const User = require('./routes/user');
+const Contributor = require('./routes/contributor');
 
 const movieAPI = require('./public/apis/movieAPI');
 const peopleAPI = require('./public/apis/peopleAPI');
@@ -41,6 +42,7 @@ appAuth.use(Person);
 appAuth.use(MyAccount);
 appAuth.use(Home);
 appAuth.use(User);
+appAuth.use(Contributor);
 
 app.use(LoginRegister);
 app.use(movieAPI);

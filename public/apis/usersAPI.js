@@ -24,7 +24,7 @@ app.get('/api/users', (req, res) => {
 })
 
 app.get('/api/users/:user', (req, res) => {
-    let userID = req.body.userID;
+    let userID = req.params.user;
     let user = {};
     for (let i = 0; i < userDataJSON.length; i++) {
         if (userDataJSON[i].userID == userID) {

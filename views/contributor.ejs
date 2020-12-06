@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header", {title: "Contributor Panel"}) %>
+
+<body class="nordtheme">
+    <style>
+        body {
+            text-align: center;
+            margin: auto;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        h1 {
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+    <br>
+    <button class="login-button" onclick="window.location.href='/private/contributor/addperson'">Add a person</button>
+    <br>
+    <button class="login-button" onclick="window.location.href='/private/contributor/addmovie'">Add a movie</button>
+
+</body>
+
+</html>
+<script src="/logic.js"></script>

@@ -26,11 +26,11 @@ app.get('/api/people', (req, res) => {
 })
 
 app.get('/api/people/:person', (req, res) => {
-    let personID = req.body.personID;
+    let personID = req.params.person;
 
     let person = {};
     for (let i = 0; i < peopleDataJSON.length; i++) {
-        if (peopleDataJSON[i].personID == personID) {
+        if (peopleDataJSON[i].name == personID) {
             person = Object.assign({}, peopleDataJSON[i]);
         }
     }

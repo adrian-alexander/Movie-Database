@@ -19,15 +19,18 @@
     <br>
     <br>
     <img src="/Pictures/defaultpicture.jpeg" height=300px/>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="followUser" class="login-button"><%= followingButtonText %></button>
     <table>
         <tr>
-            <td> Name: <%= user.name %></td>
+            <td> Name: <%= user.name %> </td>
         </tr>
         <tr>
-            <td> Favourite Movies: <%= user.favouriteMovies %></td>
-        </tr>
-        <tr>
-            <td> Watchlist: <%= user.watchlist %></td>
+            <td id="idDataCell" style="display: none"><%= user.userID%></td>
         </tr>
     </table>
 </body>
+<script src="/logic.js"></script>
