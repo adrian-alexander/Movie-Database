@@ -85,7 +85,7 @@
     <br>
     <input autofocus placeholder="Search keyword" type="text" autocomplete="off" id="searchID">
     <select class="select" id="select">
-        <option disabled selected>Select filter</option>
+        <option disabled selected required>Select filter</option>
         <option value="movie">Movie</option>
         <option value="genre">Genre</option>
         <option value="director">Director</option>
@@ -94,22 +94,27 @@
         <option value="year">Year</option>
     </select>
     <br>
-    <button class="login-button" id="searchButton" onclick="getQueries()">Search</button>
+    <button class="login-button" id="searchButton">Search</button>
     <ul class="list-group" id="list"></ul>
     <br>
     <script src="/logic.js"></script>
     <script>
+        document.getElementById('searchButton').addEventListener('click', getQueries);
+
         function getQueries() {
             let searchTerm = document.getElementById('searchID').value;
             let type = document.getElementById("select").value;
-
-            search(searchTerm, type);
-        }
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const searchTerm = urlParams.get('searchTerm');
-        if (searchTerm) {
-            search(searchTerm, type);
+            
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const searchTermFromURL = urlParams.get('searchTerm');
+            const typeFromURL = urlParams.get('type');
+            if (searchTermFromURL == null || (searchTermFromURL == null && typeFromURL == null)) {
+                search(searchTerm, type);
+            }
+            else {
+                search(searchTermFromURL, typeFromURL);
+            }
         }
     </script>
 </body>
