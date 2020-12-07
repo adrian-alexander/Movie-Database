@@ -151,7 +151,7 @@ app.get('/movie/:movieID/reviews', (req, res) => {
     // if (movie.reviews == undefined) {
     //     movie.reviews = [];
     // }
-    for (let movie of movieDataJSON) {
+    for (let movie of movieDataJSON) { 
         if (movie.Reviews == undefined) {
             movie.Reviews = [];
         }
