@@ -22,4 +22,13 @@
     <br>
     <h1>Hello, <%= user.name %> </h1>
     <h1>Recommended movies for you: </h1>
+
+        <table align="center">
+            <tr>
+                <% for (let movie of movies) { %>
+                <td> <a href=<%= "/private/movie/" + movie.imdbID%>> <img src="<%= movie.Poster%>"> </a> </td>
+                <% } %>
+            </tr>
+        </table>
+
 </body>

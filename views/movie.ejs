@@ -20,6 +20,10 @@
     <br>
     <button id="addToFavouritesButton" class="login-button"><%= favouritesButtonText %></button>
     <br>
+
+    <% if (contributor == 1) { %>
+        <button  class="login-button" onclick="window.location.href='/private/movie/<%=movie.imdbID%>/edit'">Edit movie </a></button>
+    <% } %>
     
     <table>
         <tr>

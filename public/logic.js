@@ -156,3 +156,6 @@ if (document.getElementById('followUser')) {
 if (document.getElementById('commentButton')) {
     (document.getElementById('commentButton').addEventListener('click', review));
 }
+if (document.getElementById('editMovieButton')) {
+    (document.getElementById('editMovieButton').addEventListener('click', editMovie));
+}

@@ -9,7 +9,6 @@ const fs = require('fs');
 
 // for (let movie of movieData) {
 //     peopleMap[names] = movie.actors;
-//     console.log(peopleMap[names])   
 // }
 let directorCount = 1;
 let actorCount = 1;
@@ -25,6 +24,5 @@ for (let movie of movieData) {
     }
 }
 
-//console.log(names);
 
 fs.writeFileSync('egseg.txt', names);

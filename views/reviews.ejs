@@ -101,11 +101,11 @@
     } -->
 
     <!-- <form action='/private/movie/reviews'> -->
+    <p id="movieID" hidden><%=movieID%></p>
     <div class="container">
         <h2>Add a review</h2>
         <textarea id="review" placeholder='Add Your Review'></textarea>
         <div class="btn">
-            <p id="movieID" hidden><%=movie.imdbID%></p>
             <!-- <input type="submit" value='Comment'class="login-button"> -->
             <button class="login-button" id="commentButton">Submit</button>
             <button class="login-button" id="cancelButton">Cancel</button>
