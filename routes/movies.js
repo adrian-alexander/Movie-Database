@@ -136,4 +136,44 @@ app.get('/movie/:movieID', (req, res) => {
     res.render('movie.ejs', { favouritesButtonText: favouritesButtonText, watchlistButtonText: watchlistButtonText, movie: movie, average: average, searchTermLink: "/private/find?searchTerm=", typeLink: "&type=" },);
 })
 
+
+app.get('/movie/:movieID/reviews', (req, res) => {
+    console.log(req.body);
+    let movieID = req.params.movieID;
+    let movie;
+    for (let i = 0; i < movieDataJSON.length; i++) {
+        if (movieDataJSON[i].imdbID == movieID) {
+            movie = Object.assign({}, movieDataJSON[i]);
+            break;
+        }
+    }
+    // console.log(movie.reviews);
+    // if (movie.reviews == undefined) {
+    //     movie.reviews = [];
+    // }
+    for (let movie of movieDataJSON) {
+        if (movie.Reviews == undefined) {
+            movie.Reviews = [];
+        }
+    }
+    console.log(movie.Reviews[0]);
+    const movieDataStringify = JSON.stringify(movieDataJSON);
+    fs.writeFileSync(path.join(__dirname, '..', 'movie-data.json'), movieDataStringify);
+    res.render('reviews.ejs', {movie: movie.Reviews});
+})
+
+app.post('/movie/:movieID/reviews', (req, res) => {
+
+    for (let movie of movieDataJSON) {
+        //so first, find the movie. once found, directly edit it and then save it
+        if (req.body[0].movie == movie.imdbID) {
+            movie.Reviews.push(req.body[0]);
+            break;
+        }
+    }
+    const stringifyMovieData = JSON.stringify(movieDataJSON);
+    fs.writeFileSync('movie-data.json', stringifyMovieData);
+})
+
+
 module.exports = app

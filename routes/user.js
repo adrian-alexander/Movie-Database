@@ -4,7 +4,9 @@ let fs = require('fs');
 let path = require('path');
 
 app.get('/users/:user', (req, res, next) => {
+    let movieData = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'movie-data.json')));
     let userData = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'users.json')));
+    let peopleData = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'people.json')));
     let followingButtonText = "Follow";
     let userName = req.params.user;
     let currentUser;
@@ -44,7 +46,28 @@ app.get('/users/:user', (req, res, next) => {
             break;
         }
     }
-    res.render('user.ejs', {followingButtonText: followingButtonText, user: user});
+
+    let movieNames = {};
+    for (let movie of movieData) {
+        if (user.favouriteMovies.includes(movie.imdbID) || user.watchlist.includes(movie.imdbID)) {
+            movieNames[movie.imdbID] = movie;
+        }
+    }
+
+    let peopleNames = {};
+    for (let person of peopleData) {
+        if (user.peopleFollowing.includes(person.personID)) {
+            peopleNames[person.personID] = person;
+        }
+    }
+
+    let userNames = {};
+    for (let users of userData) {
+        if (user.usersFollowing.includes(users.userID)) {
+            userNames[users.userID] = users;
+        }
+    }
+    res.render('user.ejs', {userNames: userNames, peopleNames: peopleNames, movieNames: movieNames, followingButtonText: followingButtonText, user: user});
 
 })
 
@@ -73,7 +96,6 @@ app.post('/users/me', (req, res) => {
     res.status(200);
     res.send({});
 })
-
 
 
 

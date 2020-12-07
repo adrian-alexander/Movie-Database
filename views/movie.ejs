@@ -77,6 +77,20 @@
         </tr>
         <% } %>
         </tr>
+        <tr>
+            <td>Similar Movies: </td>
+        </tr>
+        <tr>
+            <!-- <% for (let actor of movie.Actors) { %> -->
+        <tr>
+            <!-- <td> <a href="<%= "/private/person/" + actor%>"><%= actor %></a> </td> -->
+        </tr>
+        <!-- <% } %> -->
+        </tr>
+        <tr>
+            <td> <a href="<%= "/private/movie/" + movie.imdbID + "/reviews"%>">Reviews</a> </td>
+        </tr>
+        
     </table>
 </body>
 <script src="/logic.js"></script>

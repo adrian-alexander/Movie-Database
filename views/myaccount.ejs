@@ -72,6 +72,16 @@
         </tr>
             <% } %>
         </tr>
+        <tr>
+            <td> Reviews: </td>
+        </tr>
+        <tr>
+            <% for (let review of user.reviews) { %>
+        <tr>
+            <td> <a href="<%= "/private/movie/" + review.movie + "/reviews"%>"><%= review.movie %></a> </td>
+        </tr>
+            <% } %>
+        </tr>
     </table>
 </body>
 <script src="/logic.js"></script>

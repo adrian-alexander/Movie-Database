@@ -31,6 +31,56 @@
         <tr>
             <td id="idDataCell" style="display: none"><%= user.userID%></td>
         </tr>
+        <tr>
+            <td> Favourite Movies: </td>
+        </tr>
+        <tr>
+            <% for (let movie of user.favouriteMovies) { %>
+        <tr>
+            <td> <a href="<%= "/private/movie/" + movie%>"><%= movieNames[movie].Title %></a> </td>
+        </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <td> Watchlist: </td>
+        </tr>
+        <tr>
+            <% for (let movie of user.watchlist) { %>
+        <tr>
+            <td> <a href="<%= "/private/movie/" + movie%>"><%= movieNames[movie].Title %></a> </td>
+        </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <td> People Following: </td>
+        </tr>
+        <tr>
+            <% for (let person of user.peopleFollowing) { %>
+        <tr>
+            <td> <a href="<%= "/private/person/" + peopleNames[person].name%>"><%= peopleNames[person].name %></a> </td>
+        </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <td> Users Following: </td>
+        </tr>
+        <tr>
+            <% for (let user1 of user.usersFollowing) { %>
+        <tr>
+            <td> <a href="<%= "/private/users/" + userNames[user1].userID%>"><%= userNames[user1].name %></a> </td>
+        </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <td> Reviews: </td>
+        </tr>
+        <tr>
+            <% for (let review of user.reviews) { %>
+        <tr>
+            <td> <a href="<%= "/private/movie/" + review.movie + "/reviews"%>"><%= review.movie %></a> </td>
+        </tr>
+            <% } %>
+        </tr>
     </table>
 </body>
 <script src="/logic.js"></script>

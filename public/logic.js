@@ -113,6 +113,31 @@ async function request(object) {
     }
 }
 
+async function review() {
+    let currentUser = await request({ path: "/private/users/me", method: "GET" });
+    let body = [];
+
+    if (currentUser.reviews == undefined) {
+        currentUser.reviews = [];
+    }
+    currentUser.reviews.push({
+        review: document.getElementById('review').value,
+        reviewOutOf10: document.getElementById('reviewOutOf10').value,
+        movie: document.getElementById('movieID').innerHTML
+    })
+    body.push({
+        review: document.getElementById('review').value,
+        reviewOutOf10: document.getElementById('reviewOutOf10').value,
+        user: currentUser,
+        movie: document.getElementById('movieID').innerHTML
+    })
+
+    let path = "/private/movie/" + document.getElementById('movieID') + "/reviews";
+    await request({ path: "/private/users/me", method: "POST", body: currentUser });
+    await request({ path: path, method: "POST", body: body });
+    location.reload();
+}
+
 if (document.getElementById('changeAccountType')) {
     document.getElementById('changeAccountType').addEventListener('click', accountType);
 }
@@ -127,4 +152,7 @@ if (document.getElementById('addToFavouritesButton')) {
 }
 if (document.getElementById('followUser')) {
     (document.getElementById('followUser').addEventListener('click', followUser));
+}
+if (document.getElementById('commentButton')) {
+    (document.getElementById('commentButton').addEventListener('click', review));
 }

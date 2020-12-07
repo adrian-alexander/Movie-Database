@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header", {title: movie.name}) %>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="nordtheme">
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li {
+            float: left;
+        }
+
+        .headerBar li a {
+            display: block;
+            color: #d8dee9;
+            text-decoration: none;
+            padding: 8px;
+            text-align: center;
+            background-color: #4F5A69;
+        }
+
+        body {
+            text-align: center;
+            margin: 0px;
+            padding: 20px;
+            font-size: 30px;
+        }
+    </style>
+    <% for (let review of movie) { %>
+        <p><%= review.review %></p>
+        <p>Score: <%=review.reviewOutOf10 %></p>
+        <p>by: <%=review.user.name %></p>
+    <% } %>
+
+</body>
+
+<body id="body1">
+    <style>
+        .body1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f6f6;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            width: 600px;
+            border: 2px solid #333;
+            padding: 15px 10px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 15px
+        }
+
+        textarea {
+            height: 20px;
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #aaa;
+            background-color: transparent;
+            margin-bottom: 10px;
+            resize: none;
+            outline: none;
+            transition: .5s
+        }
+
+        input[type="submit"],
+        button {
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button {
+            color: #333;
+            background-color: transparent
+        }
+    </style>
+
+    <!-- for (let review of movie.Reviews) {
+        if (review != null) {
+            <tr>
+                <td> whatever the review is</td>
+            </tr>
+        }
+    } -->
+
+    <!-- <form action='/private/movie/reviews'> -->
+    <div class="container">
+        <h2>Add a review</h2>
+        <textarea id="review" placeholder='Add Your Review'></textarea>
+        <div class="btn">
+            <p id="movieID" hidden><%=movie.imdbID%></p>
+            <!-- <input type="submit" value='Comment'class="login-button"> -->
+            <button class="login-button" id="commentButton">Submit</button>
+            <button class="login-button" id="cancelButton">Cancel</button>
+        </div>
+        <select id="reviewOutOf10">
+            <option diabled selected required></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+    <!-- </form> -->
+    </body1>
+
+</html>
+<script src="/logic.js"></script>
+<script>
+</script>

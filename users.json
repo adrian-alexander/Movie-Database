@@ -8,11 +8,29 @@
             "tt0113497",
             "tt0114709"
         ],
-        "favouriteMovies": [],
+        "favouriteMovies": [
+            "tt5278462",
+            "tt2263814"
+        ],
         "userType": "normal",
-        "usersFollowing": [],
-        "peopleFollowing": [],
-        "reviews": []
+        "usersFollowing": [
+            "1606851487331"
+        ],
+        "peopleFollowing": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "reviews": [
+            {
+                "review": "yoo this is pretty good lol",
+                "reviewOutOf10": "9",
+                "movie": "tt4196776"
+            }
+        ]
     },
     {
         "userID": "1606851487331",
@@ -24,10 +42,10 @@
             "tt0114709"
         ],
         "favouriteMovies": [
-            "tt0113228",
             "tt0113277",
             "tt0910970",
-            "tt0114709"
+            "tt0114709",
+            "tt0113228"
         ],
         "userType": "contributor",
         "usersFollowing": [
@@ -41,6 +59,12 @@
             69,
             420
         ],
-        "reviews": []
+        "reviews": [
+            {
+                "review": "Kimochi desu",
+                "reviewOutOf10": "7",
+                "movie": "tt0114709"
+            }
+        ]
     }
 ]
