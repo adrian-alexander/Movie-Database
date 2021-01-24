@@ -3,9 +3,9 @@ Made by: Adrian Alexander
 Date: December 7, 2020
 
 ![Screenshot 1](ss/movie1.png)
-[Screenshot 2](https://cdn.discordapp.com/attachments/699376187025260545/802696554292445224/unknown.png)
-[Screenshot 3](https://cdn.discordapp.com/attachments/699376187025260545/802696628586545162/unknown.png)
-[Screenshot 4](https://cdn.discordapp.com/attachments/699376187025260545/802696841144827944/unknown.png)
+![Screenshot 2](ss/movie2.png)
+![Screenshot 3](ss/movie3.png)
+![Screenshot 4](ss/movie4.png)
 
 Features:
  - Has public API that returns movie JSON data
